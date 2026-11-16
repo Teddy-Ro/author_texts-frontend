@@ -10,7 +10,7 @@ import demonImage from '../assets/media/author_texts-lermontov-demon.jpg';
 import demonVideo from '../assets/media/author_texts-lermontov-demon.webm';
 import type { AuthorText } from './author_texts_types';
 
-export const AUTHOR_TEXTS_MOCK: readonly AuthorText[] = [
+const AUTHOR_TEXTS_MOCK_ITEMS: Omit<AuthorText, 'attributes'>[] = [
   {
     author_text_id: 1,
     work_title: 'Война и мир',
@@ -91,3 +91,11 @@ export const AUTHOR_TEXTS_MOCK: readonly AuthorText[] = [
     is_liked: 0,
   },
 ];
+
+export const AUTHOR_TEXTS_MOCK: readonly AuthorText[] = AUTHOR_TEXTS_MOCK_ITEMS.map((text, index) => ({
+  ...text,
+  attributes: [
+    { author_texts_attribute_id: 1, attribute_name: 'Язык', attribute_value: 'Русский' },
+    { author_texts_attribute_id: 2, attribute_name: 'Жанр', attribute_value: index === 5 ? 'Поэма' : index === 2 ? 'Рассказ' : 'Роман' },
+  ],
+}));

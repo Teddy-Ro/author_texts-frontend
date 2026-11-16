@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AUTHOR_TEXTS_DEFAULT_VIDEO } from '../modules/author_texts_utils';
+import { AUTHOR_TEXTS_DEFAULT_VIDEO, authorTextsMediaPath } from '../modules/author_texts_utils';
 import { AuthorTextsImage } from './author_texts_image';
 
 interface AuthorTextsVideoProps {
@@ -21,7 +21,7 @@ export function AuthorTextsVideo({ source, poster, title }: AuthorTextsVideoProp
       {video && (
         <video
           key={video}
-          src={video}
+          src={authorTextsMediaPath(video)}
           className="author_texts_feed_video"
           aria-label={`Видео произведения «${title}»`}
           autoPlay muted loop playsInline preload="metadata"

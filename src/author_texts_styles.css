@@ -74,4 +74,40 @@ button, input { font: inherit; }
 .author_texts_feed_next.btn:hover { background: #52525b; }
 .author_texts_feed_next svg { width: 26px; height: 26px; }
 .author_texts_feed_empty { display: grid; place-content: center; height: 100%; border: none; border-radius: 0; background: var(--author_texts_pink); }
+.author_texts_source { margin: 12px 0; color: #71717a; font-size: 12px; }
 @media (prefers-reduced-motion: reduce) { .author_texts_card { transition: none; } }
+
+.author_texts_card_info { position: absolute; z-index: 2; top: 9px; right: 9px; display: grid; place-items: center; width: 29px; height: 29px; border: 1.5px solid #3f3f46; border-radius: 50%; color: #3f3f46; background: #fff; font-size: 18px; font-weight: 750; line-height: 1; text-decoration: none; }
+.author_texts_card_info:hover { color: #fff; background: #3f3f46; }
+.author_texts_card_delete { margin: 0 11px 11px; min-height: 32px; font-size: 11px; }
+.author_texts_details, .author_texts_form_page { padding: 22px 16px; }
+.author_texts_details > img { display: block; width: 100%; height: auto; border-radius: 14px; margin: 14px 0; }
+.author_texts_details h1, .author_texts_form_page h1 { margin: 0 0 16px; font-size: 26px; font-weight: 750; overflow-wrap: anywhere; }
+.author_texts_details_back { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #fff; background: #3f3f46; text-decoration: none; font-size: 22px; }
+.author_texts_details_metrics { display: grid; gap: 6px; padding: 14px; border-radius: 12px; background: #fff; font-size: 13px; }
+.author_texts_details_metrics > div { display: flex; justify-content: space-between; gap: 12px; }
+.author_texts_details_metrics dd { margin: 0; }
+.author_texts_attributes { margin: 20px 0; padding: 14px; background: #fff; border: 1px solid #e4e4e7; border-radius: 12px; }
+.author_texts_attributes h2 { margin: 0 0 12px; font-size: 17px; font-weight: 700; }
+.author_texts_attributes table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 13px; }
+.author_texts_attributes th, .author_texts_attributes td { padding: 8px 6px; border-bottom: 1px solid #e4e4e7; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.author_texts_attributes thead th { color: #71717a; font-weight: 500; }
+.author_texts_attributes tbody tr:last-child > * { border-bottom: 0; }
+.author_texts_attributes th:first-child { width: 43%; }
+.author_texts_attributes input { padding: 5px; font-size: 13px; }
+.author_texts_form_page form { padding: 16px; background: #fff; border: 1px solid #e4e4e7; border-radius: 14px; }
+.author_texts_form_page fieldset { display: grid; gap: 16px; min-width: 0; }
+.author_texts_form_page .form-label { font-size: 13px; font-weight: 650; }
+.author_texts_form_page > p { font-size: 13px; color: #52525b; }
+.author_texts_form_page .btn-link { color: #3f3f46; }
+.author_texts_busy { position: fixed; z-index: 100; inset: 0; display: flex; align-items: center; justify-content: center; gap: 10px; background: rgb(252 231 243 / 65%); color: #3f3f46; font-size: 14px; }
+.author_texts_operation_error { position: relative; margin: 12px; padding: 12px 34px 12px 12px; border-radius: 10px; background: #fff; color: #9f1239; font-size: 13px; }
+.author_texts_operation_error button { position: absolute; right: 6px; top: 6px; border: 0; background: transparent; color: inherit; font-size: 22px; }
+.author_texts_nav_error { position: absolute; left: 8px; right: 8px; bottom: 100%; padding: 10px; background: #fff; color: #9f1239; font-size: 12px; border-radius: 10px; }
+.author_texts_media_preview { margin: 16px 0; }
+.author_texts_media_preview > img, .author_texts_media_preview > video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 14px; background: #18181b; }
+.author_texts_media_choose { display: block; width: 100%; margin-top: 10px; padding: 12px; cursor: pointer; }
+.author_texts_media_preview input:focus-visible + label { outline: 3px solid #be185d; outline-offset: 3px; }
+.author_texts_media_filename { display: block; margin: 5px 2px 0; color: #71717a; font-size: 11px; overflow-wrap: anywhere; }
+.author_texts_feed_copy p.author_texts_description_expanded { display: block; max-height: 36vh; overflow-y: auto; }
+.author_texts_description_toggle { margin-top: 4px; padding: 0; border: 0; background: transparent; color: #fff; font-size: 12px; text-decoration: underline; }

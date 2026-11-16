@@ -4,6 +4,10 @@ import { AuthorTextsVideo } from '../components/author_texts_video';
 import { AUTHOR_TEXTS_DEFAULT_IMAGE, AUTHOR_TEXTS_DEFAULT_VIDEO } from '../modules/author_texts_utils';
 
 describe('Резервные медиа', () => {
+  it('направляет MinIO-изображение через proxy фронтенда', () => {
+    render(<AuthorTextsImage source="http://localhost:9000/author-texts-media/author_texts_cover.jpg" title="Проверка" />);
+    expect(screen.getByRole('img')).toHaveAttribute('src', '/author_texts_media/author_texts_cover.jpg');
+  });
   it('подставляет локальное изображение при пустом поле', () => {
     render(<AuthorTextsImage source={null} title="Проверка" />);
     expect(screen.getByRole('img')).toHaveAttribute('src', AUTHOR_TEXTS_DEFAULT_IMAGE);

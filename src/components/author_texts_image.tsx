@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Image from 'react-bootstrap/Image';
-import { AUTHOR_TEXTS_DEFAULT_IMAGE } from '../modules/author_texts_utils';
+import { AUTHOR_TEXTS_DEFAULT_IMAGE, authorTextsMediaPath } from '../modules/author_texts_utils';
 
 interface AuthorTextsImageProps {
   source: string | null;
@@ -14,7 +14,7 @@ export function AuthorTextsImage({ source, title, className, eager = false }: Au
   const image = source && source !== failedSource ? source : AUTHOR_TEXTS_DEFAULT_IMAGE;
   return (
     <Image
-      src={image}
+      src={authorTextsMediaPath(image)}
       alt={`Обложка произведения «${title}»`}
       className={className}
       loading={eager ? 'eager' : 'lazy'}

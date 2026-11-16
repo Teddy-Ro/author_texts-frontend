@@ -1,13 +1,14 @@
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import type { AuthorText } from '../modules/author_texts_types';
-import { authorTextsCompact, authorTextsFeedPath } from '../modules/author_texts_utils';
+import { authorTextsCompact, authorTextsFeedPath, authorTextsDetailsPath } from '../modules/author_texts_utils';
 import { AuthorTextsIcon } from './author_texts_icon';
 import { AuthorTextsImage } from './author_texts_image';
 
-export function AuthorTextsCard({ text }: { text: AuthorText }) {
+export function AuthorTextsCard({ text, onDelete, busy }: { text: AuthorText; onDelete?: () => void; busy?: boolean }) {
   return (
     <Card as="article" className="author_texts_card">
+      <Link to={authorTextsDetailsPath(text.author_text_id)} className="author_texts_card_info" aria-label={`Подробнее о «${text.work_title}»`} title="Подробнее">!</Link>
       <Link to={authorTextsFeedPath(text.author_text_id)} className="author_texts_card_link" aria-label={`Открыть «${text.work_title}»`}>
         <AuthorTextsImage source={text.author_texts_image_url} title={text.work_title} className="author_texts_card_cover" />
         <Card.Body>
@@ -19,6 +20,7 @@ export function AuthorTextsCard({ text }: { text: AuthorText }) {
           <span className="author_texts_card_likes" aria-label={`Отметок нравится: ${text.author_texts_like_count}`}><AuthorTextsIcon name="heart" />{text.author_texts_like_count}</span>
         </Card.Body>
       </Link>
+      {onDelete && <button type="button" disabled={busy} className="btn btn-secondary author_texts_card_delete" aria-label={`Удалить «${text.work_title}»`} onClick={onDelete}>Удалить</button>}
     </Card>
   );
 }

@@ -2,8 +2,16 @@ import type { AuthorText } from './author_texts_types';
 
 export const AUTHOR_TEXTS_CORPUS_PATH = '/author_texts';
 export const AUTHOR_TEXTS_FEED_PATH = '/author_texts/feed';
+export const AUTHOR_TEXTS_ADD_PATH = '/author_texts/add';
+export const AUTHOR_TEXTS_LOGIN_PATH = '/author_texts/login';
 export const AUTHOR_TEXTS_DEFAULT_IMAGE = `${import.meta.env.BASE_URL}media/author_texts_default.jpg`;
 export const AUTHOR_TEXTS_DEFAULT_VIDEO = `${import.meta.env.BASE_URL}media/author_texts_default.webm`;
+
+export function authorTextsDetailsPath(id: number): string { return `/author_texts/${id}`; }
+
+export function authorTextsMediaPath(source: string): string {
+  return source.replace(/^https?:\/\/[^/]+\/author-texts-media\//, '/author_texts_media/');
+}
 
 export function authorTextsFeedPath(id?: number): string {
   return id === undefined ? AUTHOR_TEXTS_FEED_PATH : `${AUTHOR_TEXTS_FEED_PATH}/${id}`;
